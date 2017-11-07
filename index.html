@@ -1,0 +1,135 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+	<title>Home : MMTool</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<style>
+		html{
+			font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  		}
+		.mood input{
+			visibility:hidden;
+			position:absolute;
+		}
+		.mood img{
+			height:60px;
+			width:60px;
+			border-radius:150px;
+		}
+		.mood input+img:hover{
+			cursor:pointer;
+			border:2px solid #999;
+		}
+		.mood input:checked+img{
+			border:3px solid #666;
+		}
+		.bigfont{
+			border-radius:150px;
+			text-align:center;
+		}
+		nav{
+			background:#40c4ff;
+		}
+		.footer-copyright{
+			background:#000;
+			color:#fff;
+		}
+		.pallet{
+			background:#546e7a;
+		}
+		.cr{
+			background:#37474f;
+		}
+		blockquote{
+			margin: 20px 0;
+			font-style:italic;
+			font-weight:BOLD;
+			padding-left: 1.5rem;
+			border-left: 5px solid #64b5f6; /* Just change the color value and that's it*/
+		}
+	</style>
+    </head>
+
+    <body>
+
+
+<nav>
+  <div class="nav-wrapper container">
+    <a href="index.html" class="brand-logo">MMTool</a>
+    	<ul class="right hide-on-med-and-down">
+      		<li><a href="about.html">About</a></li>
+      		<li><a href="contact.html">Contact</a></li>
+      		<li><a href="">Login</a></li>
+	</ul>
+  </div>
+</nav>
+
+
+      <div class="container">
+
+		<p class="flow-text"><strong>Hey fellows,</strong>
+		</p>
+		<p class="flow-text">This portal is developed for the corporate environment where the company can know how their employee are feeling today? What kind of quality or what kind of productivity there are going to get today?
+		</p>
+			<a class="btn btn-large waves-effect waves-light z-depth-3"><i class="material-icons right">arrow_forward</i>Get Started here</a>
+
+		<p class="flow-text">
+			This would be a simplest way to measure the moods of the employee of any organization in no-time(it might take only 2 minutes to fill it).
+		</p>
+		<p class="flow-text">
+			This tools further will help the organizations to improve their own process to satisafy there employees. Because it is a great quote
+			<blockquote class="flow-text">
+				<strong>
+					if your employees are happy, your Clients are happy.
+				</strong>
+			</blockquote>
+		</p>
+      </div>
+
+
+
+	
+        <footer class="page-footer pallet">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">SignUp Newsletter</h5>
+                <p class="grey-text text-lighten-4 flow-text">
+        		Email: <input type="email" name="email" class="flow-text">
+		</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Quick Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="about.html">About</a></li>
+                  <li><a class="grey-text text-lighten-3" href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright cr">
+            <div class="container flow-text">
+            © 2017 All rights reserved by <a href="http://www.codecasm.com" target="_blank">CodeCasm</a>
+            <a class="grey-text text-lighten-4 right" href="index.html">MMTool</a>
+            </div>
+          </div>
+        </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			
+		});
+	</script>
+    </body>
+  </html>
+        
