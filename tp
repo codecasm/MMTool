@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JustTP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Pangolin|Risque" rel="stylesheet">
+	<style>
+		*{
+			font-family: 'Risque', cursive;
+		}
+		.nav img{
+			height:24px;
+			width:24px;
+		}
+		textarea{
+			resize:none;
+			font-family: 'Pangolin', cursive;
+		}
+		#happy,#ok,#sad,#response,#submit,#contactModal,#responseModal{
+			display:none;
+		}
+		#mood{
+			cursor:pointer;
+		}
+		#contactModal,#responseModal
+		{
+			background:#eee;
+			position:fixed;
+			top:100px;
+			left:100px;
+			height:300px;
+			width:80%;
+			padding:50px;
+			font-size:32px;
+			box-shadow:0px 0px 200px #000;
+			
+		}
+	</style>
+
+	<script>
+		function happy()
+		{
+			document.getElementById('happy').style.display="block";
+			document.getElementById('ok').style.display="none";
+			document.getElementById('sad').style.display="none";
+			document.getElementById('response').style.display="block";
+			document.getElementById('submit').style.display="block";
+			document.getElementById('response').style.color="Green";
+			document. getElementsByTagName("label").style.color="green";
+		}
+		function ok()
+		{
+			document.getElementById('happy').style.display="none";
+			document.getElementById('ok').style.display="block";
+			document.getElementById('sad').style.display="none";
+			document.getElementById('response').style.display="block";
+			document.getElementById('submit').style.display="block";
+			document.getElementById('response').style.color="";
+		}
+		function sad()
+		{
+			document.getElementById('happy').style.display="none";
+			document.getElementById('ok').style.display="none";
+			document.getElementById('sad').style.display="block";
+			document.getElementById('response').style.display="block";
+			document.getElementById('submit').style.display="block";
+			document.getElementById('response').style.color="red";
+			document. getElementsByTagName("label").style.color="red";
+		}
+		function modal()
+		{
+			document.getElementById('contactModal').style.display="block";
+		}
+		function modalClose()
+		{
+			document.getElementById('contactModal').style.display="none";
+		}
+		function rmodal()
+		{
+			document.getElementById('responseModal').style.display="block";
+		}
+		function rmodalClose()
+		{
+			document.getElementById('responseModal').style.display="none";
+		}
+		
+/*
+		function showBtn()
+		{
+			document.getElementById('response').style.visible="true";
+		}
+*/
+	</script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!--<a class="navbar-brand" href="#">WebSiteName</a>-->
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"><img src="svg/002-home.svg"> Home</a></li>
+      <li><a href="#" onclick="modal()"><img src="svg/001-phone-call.svg"> Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3 >Tell us your mood today?</h3>
+  <p class="lead">Click the following form accordingly.</p>
+	<form class="lead col-md-12 well">
+		<label>Select your Mood : </label><br>
+		<span id="mood" class="fa fa-smile-o fa-5x" aria-hidden="true" name="mood" value="happy" 
+
+onclick="happy()" title="I am Happy"></span>
+		<span id="mood" class="fa fa-meh-o fa-5x" aria-hidden="true" name="mood" value="ok" onclick="ok()" 
+
+title="I am ok"></span>
+		<span id="mood" class="fa fa-frown-o fa-5x" aria-hidden="true" name="mood" value="sad" 
+
+onclick="sad()" title="I am sad"></span>
+
+		<div id="happy">
+			<label>Ohh..Nyc to hear that. What's your motivation for today?</label><br>
+		</div>
+		<div id="ok">
+			<label>Is everything going good. You can share your problem with us.</label><br>
+		</div>
+		<div id="sad">
+			<label>Ohh..Sorry to hear that. We would like to know about your problem to help you solve 
+
+it?</label><br>
+		</div>
+		<div style="margin:3px;">
+		<textarea rows=5 id="response" onchange="showBtn()" class="col-md-12"></textarea>
+		</div>
+		<div style="margin:3px;">
+		<input type="submit" class="btn btn-success" value="Submit Response" name="response" id="submit" 
+
+onclick="rmodal()">
+		</div>
+	</form>
+</div>
+
+
+<div id="contactModal">
+     <div>
+          <p>Don't dare to contact us ever.</p>
+     </div>
+	Click here to [<a href='#' onclick='modalClose()'>close</a>]
+</div>
+
+<div id="responseModal">
+     <div>
+          <h1 class="text-center">Thanks..!!</h1>
+	<p>
+		As per now, your response has been recorded. We will get back to you soon.
+		<script>
+			var mood=document.getElementsByName("mood").value;
+			document.write(mood);
+		</script>
+	</p>
+     </div>
+	Click here to [<a href='#' onclick='rmodalClose()'>close</a>]
+</div>
+</body>
+</html>
