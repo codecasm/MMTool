@@ -12,20 +12,44 @@
 	<style>
 		*{
 			font-family: 'Risque', cursive;
+			outline:none;
 		}
 		.nav img{
 			height:24px;
 			width:24px;
 		}
+		.navbar-nav li a{
+			color:red;
+		}
+		h1{
+			text-shadow:1.5px 1.5px 1.5px gray;
+			text-align:center;
+			color:#428bca;
+			font-weight:900;
+			font-size:50px;
+			text-decoration:underline;
+		}
 		textarea{
 			resize:none;
 			font-family: 'Pangolin', cursive;
+			border:none;
+			border-left:2px solid #666;
 		}
 		#happy,#ok,#sad,#response,#submit,#contactModal,#responseModal{
 			display:none;
 		}
 		#mood{
 			cursor:pointer;
+			text-shadow:3px 3px 10px black;
+			margin:15px;
+		}
+		button#mood{
+			border:none;
+			background:rgba(0,0,0,0);
+		}
+		#lblMood{
+			text-shadow:1px 1px 1px gray;
+			font-size:28px;
 		}
 		#contactModal,#responseModal
 		{
@@ -33,69 +57,24 @@
 			position:fixed;
 			top:100px;
 			left:100px;
-			height:300px;
+			height:auto;
 			width:80%;
 			padding:50px;
 			font-size:32px;
 			box-shadow:0px 0px 200px #000;
 			
 		}
+		footer{
+			text-align:center;
+			font-family:courier;
+		}
+		#smood{
+			text-transform: capitalize;
+			font-size:24px;
+			color:#319C9E;
+		}
 	</style>
 
-	<script>
-		function happy()
-		{
-			document.getElementById('happy').style.display="block";
-			document.getElementById('ok').style.display="none";
-			document.getElementById('sad').style.display="none";
-			document.getElementById('response').style.display="block";
-			document.getElementById('submit').style.display="block";
-			document.getElementById('response').style.color="Green";
-			document. getElementsByTagName("label").style.color="green";
-		}
-		function ok()
-		{
-			document.getElementById('happy').style.display="none";
-			document.getElementById('ok').style.display="block";
-			document.getElementById('sad').style.display="none";
-			document.getElementById('response').style.display="block";
-			document.getElementById('submit').style.display="block";
-			document.getElementById('response').style.color="";
-		}
-		function sad()
-		{
-			document.getElementById('happy').style.display="none";
-			document.getElementById('ok').style.display="none";
-			document.getElementById('sad').style.display="block";
-			document.getElementById('response').style.display="block";
-			document.getElementById('submit').style.display="block";
-			document.getElementById('response').style.color="red";
-			document. getElementsByTagName("label").style.color="red";
-		}
-		function modal()
-		{
-			document.getElementById('contactModal').style.display="block";
-		}
-		function modalClose()
-		{
-			document.getElementById('contactModal').style.display="none";
-		}
-		function rmodal()
-		{
-			document.getElementById('responseModal').style.display="block";
-		}
-		function rmodalClose()
-		{
-			document.getElementById('responseModal').style.display="none";
-		}
-		
-/*
-		function showBtn()
-		{
-			document.getElementById('response').style.visible="true";
-		}
-*/
-	</script>
 </head>
 <body>
 
@@ -110,64 +89,138 @@
     </ul>
   </div>
 </nav>
-  
 <div class="container">
-  <h3 >Tell us your mood today?</h3>
+  <h1>Tell us your mood today?</h1>
   <p class="lead">Click the following form accordingly.</p>
-	<form class="lead col-md-12 well">
-		<label>Select your Mood : </label><br>
-		<span id="mood" class="fa fa-smile-o fa-5x" aria-hidden="true" name="mood" value="happy" 
+	<formm class="lead col-md-12 well">
+		<label>Select your Mood : </label> <span id="smood"></span><br>
+		<button id="mood" class="fa fa-smile-o fa-5x" aria-hidden="true" name="mood" value="happy" 
 
-onclick="happy()" title="I am Happy"></span>
-		<span id="mood" class="fa fa-meh-o fa-5x" aria-hidden="true" name="mood" value="ok" onclick="ok()" 
+onclick=happy(this.value) title="I am Happy" style="color:green"></button>
+		<button id="mood" class="fa fa-meh-o fa-5x" aria-hidden="true" name="mood" value="ok" onclick=ok
 
-title="I am ok"></span>
-		<span id="mood" class="fa fa-frown-o fa-5x" aria-hidden="true" name="mood" value="sad" 
+(this.value) title="I am ok" style="color:brown"></button>
+		<button id="mood" class="fa fa-frown-o fa-5x" aria-hidden="true" name="mood" value="sad" 
 
-onclick="sad()" title="I am sad"></span>
+onclick=sad(this.value) title="I am sad" style="color:red"></button>
 
 		<div id="happy">
-			<label>Ohh..Nyc to hear that. What's your motivation for today?</label><br>
+			<label id="lblMood">Ohh..Nyc to hear that. What's your motivation for today?</label><br>
 		</div>
 		<div id="ok">
-			<label>Is everything going good. You can share your problem with us.</label><br>
+			<label id="lblMood">Is everything going good. You can share your problem with 
+
+us.</label><br>
 		</div>
 		<div id="sad">
-			<label>Ohh..Sorry to hear that. We would like to know about your problem to help you solve 
+			<label id="lblMood">Ohh..Sorry to hear that. We would like to know about your problem to 
 
-it?</label><br>
+help you solve it?</label><br>
 		</div>
 		<div style="margin:3px;">
 		<textarea rows=5 id="response" onchange="showBtn()" class="col-md-12"></textarea>
 		</div>
-		<div style="margin:3px;">
-		<input type="submit" class="btn btn-success" value="Submit Response" name="response" id="submit" 
+		<div style="margin-top:30px;">
+		<button type="submit" class="btn btn-success" value="Submit Response" name="response" id="submit" 
 
-onclick="rmodal()">
+onclick="rmodal()">Submit Response<button>
 		</div>
-	</form>
+	</formm>
 </div>
+<footer>
+	<hr>
+	<p>Made with &hearts; by Ashish.</p>
+</footer>
 
 
 <div id="contactModal">
      <div>
           <p>Don't dare to contact us ever.</p>
      </div>
-	Click here to [<a href='#' onclick='modalClose()'>close</a>]
+	<p>Click here to [<a href='#' onclick='modalClose()'>close</a>]</p>
 </div>
 
 <div id="responseModal">
      <div>
           <h1 class="text-center">Thanks..!!</h1>
 	<p>
-		As per now, your response has been recorded. We will get back to you soon.
-		<script>
-			var mood=document.getElementsByName("mood").value;
-			document.write(mood);
-		</script>
+		As per now, your response has been recorded. We will get back to you soon.<br>
+		Your Mood is : <span id="smood"></span>
 	</p>
      </div>
 	Click here to [<a href='#' onclick='rmodalClose()'>close</a>]
+
+
+
+
+
+
+	<script>
+		function happy(m)
+		{
+			document.getElementById('happy').style.display="block";
+			document.getElementById('ok').style.display="none";
+			document.getElementById('sad').style.display="none";
+			document.getElementById('response').style.display="block";
+			document.getElementById('submit').style.display="block";
+			document.getElementById('response').style.color="Green";
+			document.getElementById('lblMood').style.color="Green";
+			var mood=m;
+			document.getElementById('smood').innerHTML="'"+mood+"'";
+		}
+		function ok(m)
+		{
+			document.getElementById('happy').style.display="none";
+			document.getElementById('ok').style.display="block";
+			document.getElementById('sad').style.display="none";
+			document.getElementById('response').style.display="block";
+			document.getElementById('submit').style.display="block";
+			document.getElementById('response').style.color="brown";
+			document.getElementById('lblMood').style.color="brown";
+			var mood=m;
+			document.getElementById('smood').innerHTML="'"+mood+"'";
+		}
+		function sad(m)
+		{
+			document.getElementById('happy').style.display="none";
+			document.getElementById('ok').style.display="none";
+			document.getElementById('sad').style.display="block";
+			document.getElementById('response').style.display="block";
+			document.getElementById('submit').style.display="block";
+			document.getElementById('response').style.color="red";
+			document.getElementById('lblMood').style.color="red";
+			var mood=m;
+			document.getElementById('smood').innerHTML="'"+mood+"'";
+		}
+		function modal()
+		{
+			document.getElementById('contactModal').style.display="block";
+		}
+		function modalClose()
+		{
+			document.getElementById('contactModal').style.display="none";
+		}
+		function rmodal()
+		{
+			document.getElementById('responseModal').style.display="block";
+			//var mood=document.getElementById('mood').getAttribute('value');
+			document.getElementById('smood').innerHTML="'"+mood+"'";
+		}
+		function rmodalClose()
+		{
+			document.getElementById('responseModal').style.display="none";
+			location.reload();
+		}
+		
+/*
+		function showBtn()
+		{
+			document.getElementById('response').style.visible="true";
+		}
+*/
+	</script>
+
+
 </div>
 </body>
 </html>
